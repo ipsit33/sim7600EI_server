@@ -1,2 +1,2 @@
-{"name":"Viswa Boots","work":"noob monkey","gender":"male"}
+{"name":"Viswa"}
 
