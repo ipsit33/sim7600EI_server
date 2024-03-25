@@ -25,6 +25,7 @@ app.post('/', (req, res) => {
             res.status(500).send("Error saving POST request");
         } else {
             console.log("POST request saved successfully: ",requestBody);
+            console.log(requestBody);
             res.status(200).send("POST request saved successfully");
         }
     });
