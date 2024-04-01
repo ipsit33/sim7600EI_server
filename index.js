@@ -61,6 +61,40 @@ app.post('/', (req, res) => {
     });
 });
 
+// PUT request handler for JSON format
+app.put('/', (req, res) => {
+    const updatedData = req.body;
+    console.log(updatedData);
+
+    // Save updated data to the file
+    fs.writeFile('post_requests.txt', JSON.stringify(updatedData) + '\n', (err) => {
+        if (err) {
+            console.error("Error updating data:", err);
+            res.status(500).send("Error updating data");
+        } else {
+            console.log("Data updated successfully:", updatedData);
+            res.status(200).send("Data updated successfully");
+        }
+    });
+});
+
+// PUT request handler for text/plain format
+app.put('/', (req, res) => {
+    const updatedData = req.body;
+    console.log(updatedData);
+
+    // Save updated data to the file
+    fs.writeFile('post_requests.txt', updatedData + '\n', (err) => {
+        if (err) {
+            console.error("Error updating data:", err);
+            res.status(500).send("Error updating data");
+        } else {
+            console.log("Data updated successfully:", updatedData);
+            res.status(200).send("Data updated successfully");
+        }
+    });
+});
+
 // Start server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
